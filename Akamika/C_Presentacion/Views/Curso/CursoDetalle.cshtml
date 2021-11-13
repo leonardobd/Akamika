@@ -1,0 +1,25 @@
+﻿@using C_Entidades
+@model IEnumerable<Curso>
+@{
+    ViewBag.Title = "Cursos";
+    Layout = "~/Views/M_Basic.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <hr />
+        <h2 class="page-header">Lista de cursos</h2>
+        @foreach (var c in Model)
+        {
+            <div class="col-md-6 portfolio-item">
+                <a href="#">
+                    <img class="img-responsive thumbnail" src="/desing/Imagenes/I_Curso/@c.CursoImagen" alt="">
+                </a>
+                <h3>
+                    <a href="@Url.Action("ListaSession", "Curso", new { CursoID = c.CursoID })">@Html.DisplayFor(modelItem => c.CursoNombre)</a>
+                </h3>
+                <p>@Html.DisplayFor(modelItem => c.CursoDescripción)</p>
+            </div>
+
+        }
+    </div>
+</div>

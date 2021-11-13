@@ -1,0 +1,101 @@
+﻿@using C_Entidades
+@model IEnumerable<Sesion>
+@{
+    ViewBag.Title = "Sesiones";
+    Layout = "~/Views/M_Basic.cshtml";
+}
+<div class="col-md-12">
+    
+    <div class="col-lg-8">
+
+        
+            <hr />
+            <h2 class="page-header">Lista de sesiones</h2>
+            <div class="col-lg-12">
+                @foreach (var s in Model)
+                {
+                    <div class="col-lg-12">
+                        <a class="link-listaSesion" href="@Url.Action("RegistrarSesion", "Curso", new { SesionID = s.SesionID, CursoID = Convert.ToInt16(ViewBag.IDCurso) })">
+                            <i class="fa fa-link"></i> @s.SesionTitulo                            
+                        </a>                        
+                    </div>
+                }
+            </div>
+        @if (Session["usuario"] != null)
+        {
+            <div class="row">
+                <h2 class="page-header">Comentario</h2>
+                <div class="col-lg-12">
+                    <form method="post" action="IngresoComentario">
+                        <div class="form-group">
+                            <label>Ingrese un comentario</label>
+                            <input type="hidden" name="txt_IDCurso" value="@ViewBag.IDCurso" />
+                            <textarea class="form-control" name="txt_Comentario" rows="3" placeholder="Comentario..." required></textarea>
+                        </div>
+                        <div class="navbar-right">
+                            <button type="submit" class="btn btn-success">Ingresar comentario</button>
+                        </div>
+                    </form>
+                    @if (ViewBag.mensaje != null)
+                    {
+                        if (ViewBag.identificador == 1)
+                        {
+                            <div class="alert alert-danger" role="alert"><i class="glyphicon glyphicon-exclamation-sign"></i> @ViewBag.mensaje</div><br />
+                        }
+                        else if (ViewBag.identificador == 2)
+                        {
+                            <div class="alert alert-warning" role="alert"><i class="glyphicon glyphicon-exclamation-sign"></i> @ViewBag.mensaje</div><br />
+                        }
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <br />
+            <div class="alert alert-warning" role="alert"><i class="glyphicon glyphicon-exclamation-sign"></i> Debe <a href="@Url.Action("RegistroLogin", "Inicio")">registrarse o ingresar</a> para poder realizar algun comentario.</div>
+        }
+        <h2 class="page-header">Comentarios</h2>
+        @foreach (C_Entidades.Comentario lc in C_ReglasNegocio.rn_Comentario.Instancia.ListaComentarioPorCurso(ViewBag.IDCurso))
+        {
+            if (lc.Usuario.UsuarioID != null) { 
+                <div class="col-lg-12">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="/desing/Imagenes/I_Usuario/@lc.Usuario.Persona.PersonaFoto" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">@lc.Usuario.Persona.PersonaNombres @lc.Usuario.Persona.PersonaApellidos</h4>
+                            @lc.ComentarioDetalle
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            }
+            else if (lc.Usuario.UsuarioID == null)
+            { 
+                <div class="col-lg-12">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>¡Vaya!</strong> Parece que aún no hay comentarios.
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="col-lg-4">
+        <br />
+        <h4 class ="page-header">Siguenos nuestro grupo de </h4>
+        <a href="https://web.facebook.com/codcafein/"> Facebook</a>
+        <h4 class="page-header">O por nuestro blog en</h4>
+        <a href="https://codcafein.wordpress.com"> Cod Cafein</a>
+    </div>
+</div>
+
+
+
+
+

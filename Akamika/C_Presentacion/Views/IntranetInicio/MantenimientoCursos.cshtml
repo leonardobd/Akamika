@@ -1,0 +1,134 @@
+﻿@using C_Entidades
+@model IEnumerable<Curso>
+@{
+    ViewBag.Title = "Cursos";
+    Layout = "~/Views/M_BasicI.cshtml";
+}
+<script src="~/desing/Intranet/bower_components/jquery/dist/jquery.min.js"></script>
+<div class="row">
+    <h1 class="page-header">Cursos <small>Lista de cursos creados</small> <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></button></h1>
+    @if (ViewBag.mensaje != null)
+    {
+        <div class="col-lg-12">
+            @if (ViewBag.identificador == 1)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>¡Opps!</strong> @ViewBag.mensaje
+                </div>
+            }
+            else if (ViewBag.identificador == 2)
+            {
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>¡Ojo!</strong> @ViewBag.mensaje
+                </div>
+            }
+            else if (ViewBag.identificador == 3)
+            {
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>¡Genial!</strong> @ViewBag.mensaje
+                </div>
+            }
+        </div>
+    }
+    @foreach (var c in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive" src="/desing/Imagenes/I_Curso/@Html.DisplayFor(modelItem => c.CursoImagen)" alt="...">
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => c.CursoNombre)</h3>                    
+                    <center>
+                        <a href="@Url.Action("ActualizarCurso", "IntranetInicio", new { CursoID = c.CursoID })" class="btn btn-primary" role="button"><i class="fa  fa-pencil"></i> Modificar</a>
+                        <a href="@Url.Action("ActualizarSesiones", "IntranetInicio",new { CursoID = c.CursoID })" class=" btn btn-default" role="button"><i class="fa fa-list"></i> Sesiones</a>
+                        <button data-id="@c.CursoID" data-toggle="modal" data-target="#myModal2" id="btn_Eliminar" data-placement="top" data-toggle="tooltip" data-original-title="Eliminar" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" action="AgregarCurso" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Curso <small>Llena los espacios</small></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <input class="form-control" name="Nombre" placeholder="Título del curso" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="Descripcion" placeholder="Descripción..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <select name="Categoria" id="Categoria" class="form-control" required>
+                                    <option value="0">Seleccione la categoria</option>
+                                    @foreach (C_Entidades.Categoria c in C_ReglasNegocio.rn_Categoria.Instancia.ListaCategoria())
+                                    {
+                                        <option value="@c.CategoriaID">@c.CategoriaNombre</option>
+                                    }
+                                </select>
+                            </div>
+                            <input type="hidden" name="idCategoria" id="idCategoria" />
+                            <script>
+                                $("select#Categoria").change(function () {
+                                    var valor = $(this).val();
+                                    $('#idCategoria').val(valor);
+                                });
+                            </script>
+                            <div class="form-group">
+                                <label>Imagen</label>
+                                <input type="file" name="img" />
+                            </div>
+                            <div class="form-group">
+                                <label>Establecer fecha de publicación</label>
+                                <input type="date" name="txt_PFecha" class="form-control" value="" placeholder="Fecha de publicación"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Establecer hora de publicación</label>
+                                <input type="time" name="txt_PHora"  class="form-control" value="" placeholder="Fecha de publicación" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="myModal2" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post" action="EliminarCurso">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Eliminar</h4>
+                    </div>
+                    <div class="modal-body">
+                        ¿Seguro que desea eliminar este elemento?
+                        <input type="hidden" name="identificador" id="Id" value="" />
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                        <button class="btn btn-danger" type="submit"> Eliminar</button>
+                    </div>
+                </div>
+            </form>
+        </div>    
+</div>
+<script src="~/desing/js/modal_u.js"></script>

@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_Presentacion", "C_Presentacion\C_Presentacion.csproj", "{6194FE30-CE6E-467C-918D-3FDF6833890A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_AccesoDatos", "C_AccesoDatos\C_AccesoDatos.csproj", "{D7F519A9-29BF-42B1-98D6-5FD74C34EAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_Entidades", "C_Entidades\C_Entidades.csproj", "{301E5C78-6736-4C5D-9BDC-6ABBD8120233}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_ReglasNegocio", "C_ReglasNegocio\C_ReglasNegocio.csproj", "{6438D7E1-F066-4265-9CD7-217370F7BBD5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://codcafein.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = C_Presentacion\\C_Presentacion.csproj
+		SccProjectName1 = C_Presentacion
+		SccLocalPath1 = C_Presentacion
+		SccProjectUniqueName2 = C_AccesoDatos\\C_AccesoDatos.csproj
+		SccProjectName2 = C_AccesoDatos
+		SccLocalPath2 = C_AccesoDatos
+		SccProjectUniqueName3 = C_Entidades\\C_Entidades.csproj
+		SccProjectName3 = C_Entidades
+		SccLocalPath3 = C_Entidades
+		SccProjectUniqueName4 = C_ReglasNegocio\\C_ReglasNegocio.csproj
+		SccProjectName4 = C_ReglasNegocio
+		SccLocalPath4 = C_ReglasNegocio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6194FE30-CE6E-467C-918D-3FDF6833890A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6194FE30-CE6E-467C-918D-3FDF6833890A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6194FE30-CE6E-467C-918D-3FDF6833890A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6194FE30-CE6E-467C-918D-3FDF6833890A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F519A9-29BF-42B1-98D6-5FD74C34EAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F519A9-29BF-42B1-98D6-5FD74C34EAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F519A9-29BF-42B1-98D6-5FD74C34EAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F519A9-29BF-42B1-98D6-5FD74C34EAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{301E5C78-6736-4C5D-9BDC-6ABBD8120233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301E5C78-6736-4C5D-9BDC-6ABBD8120233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301E5C78-6736-4C5D-9BDC-6ABBD8120233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301E5C78-6736-4C5D-9BDC-6ABBD8120233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6438D7E1-F066-4265-9CD7-217370F7BBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6438D7E1-F066-4265-9CD7-217370F7BBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6438D7E1-F066-4265-9CD7-217370F7BBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6438D7E1-F066-4265-9CD7-217370F7BBD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

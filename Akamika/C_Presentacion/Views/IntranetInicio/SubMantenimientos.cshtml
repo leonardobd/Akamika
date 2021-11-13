@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Sub-mantenimientos";
+    Layout = "~/Views/M_BasicI.cshtml";
+}
+<div class="row">    
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">Categoria</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+                <h2>
+                    Mantenimiento de categorias
+                    <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></button>
+                </h2>
+                @if (ViewBag.identificador == 3)
+                {
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>¡Genial!</strong> @ViewBag.mensaje
+                    </div>
+                }
+                else if (ViewBag.identificador == 2)
+                {
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>¡Ojo!</strong> @ViewBag.mensaje
+                    </div>
+                }
+                else if (ViewBag.identificador == 1)
+                {
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>¡Opps!</strong> @ViewBag.mensaje
+                    </div>
+                }
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Controles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (C_Entidades.Categoria c in C_ReglasNegocio.rn_Categoria.Instancia.ListaCategoria())
+                        {
+                            <tr>
+                                <td> </td>
+                                <td>@c.CategoriaNombre</td>
+                                <td>
+                                    @if (c.CategoriaEstado.Equals("AC"))
+                                    {
+                                        <span class="label label-success">Activo</span>
+                                    }
+                                    else if (c.CategoriaEstado.Equals("DE"))
+                                    {
+                                        <span class="label label-danger">Inactivo</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("ModificarCategoria", "IntranetInicio", new { CategoriaID = c.CategoriaID })" class="btn btn-info" title="Actualizar" data-toggle="tooltip" data-placement="top">
+                                        <i class="fa fa-refresh"></i>
+                                    </a>
+                                    <button data-id="@c.CategoriaID" data-toggle="modal" data-target="#myModal2" id="btn_Eliminar" data-placement="top" data-toggle="tooltip" data-original-title="Eliminar" class="btn btn-danger">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </button>                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form method="post" action="RegistarCategoria" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Agregar categoría</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre de la categoria" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" name="fotoi" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="myModal2" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" action="EliminarCategoria">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    ¿Seguro que desea eliminar este elemento?
+                    <input type="hidden" name="identificador" id="Id" value="" />
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                    <button class="btn btn-danger" type="submit"> Eliminar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/desing/js/modal_u.js"></script>

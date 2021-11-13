@@ -1,0 +1,42 @@
+﻿@using C_Entidades;
+@model CursoRegistro
+@{
+    ViewBag.Title = "Sesion";
+    Layout = "~/Views/M_Basic.cshtml";
+}
+@using (Html.BeginForm())
+{
+    Int16 Siguiente = Convert.ToInt16(Model.Sesion.SesionID + 1);
+
+    <div class="col-md-12">
+        <hr />
+        <h2 class="page-header">
+            @Model.Sesion.Curso.CursoNombre <small>@Model.Sesion.SesionTitulo</small>
+            <a class="btn btn-success" href="@Url.Action("RegistrarSesion", "Curso", new { SesionID = Siguiente, CursoID = ViewBag.Curso })">
+                Siguiente
+                <i class="fa fa-chevron-right"></i>
+            </a>                           
+        </h2>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("ListaSession", "Curso", new { CursoID = Model.Sesion.Curso.CursoID })">@Model.Sesion.Curso.CursoNombre</a></li>
+            <li class="active">@Model.Sesion.SesionTitulo</li>
+        </ol>
+    </div>
+    
+    <div class="col-lg-8">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="@Model.Sesion.SesionVideo" frameborder="0" allowfullscreen></iframe> <hr />
+        </div>
+    </div>
+    <div class="col-lg-4 container">
+        <div class="jumbotron">
+            <span><i class="fa fa-clock-o"></i> @Model.Sesion.FechaRegistroS</span>
+            <p>@Model.Sesion.SesionDescripcion</p>
+        </div>
+        <div class="col-lg-12">
+            <a class="btn btn-success navbar-right" href="@Url.Action("RegistrarSesion", "Curso", new { SesionID = Siguiente, CursoID = ViewBag.Curso })">Siguiente <i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
+    <hr />
+    
+}

@@ -1,0 +1,155 @@
+﻿@using C_Entidades
+@model IEnumerable<Sesion>
+@{
+    ViewBag.Title = "Mantenimiento de sesiones";
+    Layout = "~/Views/M_BasicI.cshtml";
+}
+
+<script src="~/desing/js/movimiento_data.js"></script>
+<div class="row">
+    <h1 class="page-header">Sesiones <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></button></h1>    
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("MantenimientoCursos")">Curso</a></li>
+        <li class="active">Mantenimiento de sesiones</li>
+    </ol> 
+    @if (ViewBag.mensaje != null)
+    {
+        if (ViewBag.identificador == 1)
+        {
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>¡Opps!</strong> @ViewBag.mensaje
+            </div>
+        }
+        else if (ViewBag.identificador == 2)
+        {
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>¡Ojo!</strong> @ViewBag.mensaje
+            </div>
+        }
+        else if (ViewBag.identificador == 3)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>¡Genial!</strong> @ViewBag.mensaje
+            </div>
+        }
+    }
+          
+    <div class="panel panel-default">
+       
+        <div class="panel-heading">
+            Lista
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Estado</th>
+                            <th>Fecha registrada</th>
+                            <th>Controles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model)
+                        {
+                        <tr>
+                            <td> </td>
+                            <td>@s.SesionTitulo</td>
+                            <td>@if(s.SesionEstado.Equals("AC")){
+                                <span class="label label-success">Activo</span>
+                                }else if(s.SesionEstado.Equals("DE")){
+                                    <span class="label label-danger">Inactivo</span>
+                                }
+                            </td>
+                            <td>@s.FechaRegistroS</td>       
+                            <td>
+                                <a href="@Url.Action("ModificarSesion", "IntranetInicio", new { CursoID = ViewBag.idCurso, SesionID=s.SesionID })" class="btn btn-info" title="Actualizar" data-toggle="tooltip" data-placement="top">
+                                    <i class="fa fa-refresh"></i>
+                                </a>                             
+                                <button title="Eliminar" id="btnEliminar" data-idcurso="@ViewBag.idCurso" data-idsesion="@s.SesionID" data-toggle="modal" data-target="#myModal2" data-toggle="tooltip" data-placement="top" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>                                                              
+                            </td>                     
+                        </tr>
+                        }                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post" action="AgregarSesion" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Sesion <small>Llena los espacios para crear una nueva</small></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <input class="form-control" name="titulo" placeholder="Título del sesion" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="Descripcion" placeholder="Descripción."></textarea>
+                            </div>
+                            <input type="hidden"  name="idCurso" value="@ViewBag.idCurso" />
+                            <div class="form-group">                                
+                                <input class="form-control" name="URL" placeholder="URL" required>
+                                <small class="text-muted">
+                                    <b>
+                                        IMPORTANTE**
+                                    </b>
+                                    <br />
+                                        URL real: https://www.youtube.com/<b>"watch?v="</b>i1Kb0yS3rSE <br />
+                                        URL que debe ingresar: https://www.youtube.com/<b>"embed/"</b>i1Kb0yS3rSE
+</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Establecer fecha de publicación</label>
+                                <input type="date" name="txt_PFecha" class="form-control" value="" placeholder="Fecha de publicación" />
+                            </div>
+                            <div class="form-group">
+                                <label>Establecer hora de publicación</label>
+                                <input type="time" name="txt_PHora" class="form-control" value="" placeholder="Fecha de publicación" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal2" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" action="EliminarSesion">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Eliminar</h4>
+                </div>
+                <div class="modal-body">
+                    ¿Seguro que desea eliminar este elemento?
+                    <input type="hidden" name="identificador" id="IdCurso" value="idcurso" />
+                    <input type="hidden" name="identificador" id="IdSesion" value="idsesion" />
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                    <button class="btn btn-danger" type="submit"> Eliminar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/desing/js/modal_dos.js"></script>

@@ -1,0 +1,64 @@
+﻿@using C_Entidades;
+@model Sesion
+@{
+    ViewBag.Title = "Principal";
+    Layout = "~/Views/M_BasicI.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Inicio</h1>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="glyphicon glyphicon-cloud-upload fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.CVideos</div>
+                                <div>Videos subidos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-comments fa-fw"></i> Últimos comentarios
+
+                    <div class="panel-body">                    </div>
+                        @foreach (C_Entidades.Comentario c in C_ReglasNegocio.rn_Comentario.Instancia.ListaComentario())
+                        {
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <span class="pull-right text-muted small">
+                                    <em>@c.FechaRegistroCM</em>
+                                </span>
+                                <i class="fa fa-comment fa-fw"></i> @c.ComentarioDetalle                                
+                            </a>
+                        </div>
+                        }                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-video-camera fa-fw"></i> Video más visto
+                    </div>
+                    <div class="panel-body">
+                        
+                            <h4>@Model.SesionTitulo </h4>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item " src="@Model.SesionVideo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    </div>               
+        </div>
+    </div>
+</div>

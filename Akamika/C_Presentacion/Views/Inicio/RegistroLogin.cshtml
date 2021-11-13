@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Registrate - Ingresa";
+    Layout = "~/Views/M_Basic.cshtml";
+}
+<div class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Registro</h2>
+                <form method="post" action="RegistroUsuario" enctype="multipart/form-data">
+                    <input type="text" name="txtNombres" class="form-control" placeholder="Nombres" required></br>
+                    <input type="text" name="txtApellidos" class="form-control" placeholder="Apellidos" required></br>
+                    <select name="cboGenero" class="form-control">
+                        <option>Selecciona tu genero</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select><br>
+                    <input type="text" name="txtFechaNacimiento" class="form-control" placeholder="Fecha de nacimiento" required><br>
+                    <input type="email" name="txtEmail" class="form-control" placeholder="Correo" required></br>
+                    <input type="password" name="txtPassw" class="form-control" placeholder="Contraseña" required></br>
+                    Foto <input type="file" name="fotoi" class="form-control" required></br>
+                    <input type="submit" class="btn btn-success" value="Registrarse">
+                    @*<a href="#" class="btn btn-primary "><i class="fa fa-facebook fa-fw"></i> Registrarme con facebook</a>
+            <!--Próximamente-->
+                    *@
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Ingresar</h2></br>
+                <form class="col-lg-7" method="post" action="IngresoUsuario">
+                    <input type="text" name="txtCorreo" class="form-control" placeholder="Correo"><br>
+                    <input type="password" name="txtPassw" class="form-control" placeholder="Contraseña"><br />
+                    <input type="submit" class="btn btn-success" value="Ingresar">
+                    @*<a href="#" class="btn btn-primary"><i class="fa fa-facebook fa-fw"></i> Iniciar con facebook</a>
+            <!--Próximamente-->
+                    *@
+                </form>
+            </div>
+            <div class="col-lg-12">
+                @if (ViewBag.mensaje != null)
+                {
+                    if (ViewBag.identificador == 2)
+                    {
+                        <br /><div class="alert alert-warning" role="alert"><i class="glyphicon glyphicon-exclamation-sign"></i> @ViewBag.mensaje</div><br />
+                    }
+                    else if (ViewBag.identificador == 3)
+                    {
+                        <br /><div class="alert alert-success" role="alert"><i class="glyphicon glyphicon-ok-circle"></i> @ViewBag.mensaje</div><br />
+                    }
+                    else if (ViewBag.identificador == 1)
+                    {
+                        <br /><div class="alert alert-danger" role="alert"><i class="glyphicon glyphicon-ok-circle"></i> @ViewBag.mensaje</div><br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

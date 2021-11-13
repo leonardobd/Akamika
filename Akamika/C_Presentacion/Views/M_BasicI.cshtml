@@ -1,0 +1,95 @@
+﻿@using C_Entidades;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+    <link href="~/desing/Intranet/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/desing/Intranet/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="~/desing/Intranet/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/desing/Intranet/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+   
+    <script src="~/desing/Intranet/bower_components/jquery/dist/jquery.min.js"></script>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Akamika <small>0.1</small></a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">                
+                <li class="dropdown">
+                    @{
+                        Usuario u = (Usuario)Session["usuario"];
+                        String Nombres = u.Persona.PersonaNombres + " " + u.Persona.PersonaApellidos;
+                        Int16 codigousuario = Convert.ToInt16(u.UsuarioID);
+                    
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        @Nombres <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="@Url.Action("Perfil")"><i class="fa fa-user fa-fw"></i> Perfil</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("CerrarSesion", "Inicio")"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                        }
+                </li>
+            </ul>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="@Url.Action("Principal")"><i class="fa fa-bar-chart-o fa-fw"></i> Principal</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MantenimientoCursos")"><i class="fa fa-video-camera fa-fw"></i> Cursos</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("SubMantenimientos")"><i class="fa fa-th fa-fw"></i> Sub-mantenimientos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+               @RenderBody()
+            </div>            
+        </div>
+        <footer>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="copyright text-muted small">Copyright © Akamika 2016. Derechos reservados - Basado en tema <a href="http://startbootstrap.com/template-overviews/sb-admin-2/">SB Admin 2</a> - Versión beta</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="copyright text-muted small text-right">Apoya a la comunidad <a href="https://codcafein.wordpress.com">Cod Cafein</a></p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </footer>       
+    </div>    
+    <script src="~/desing/Intranet/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/desing/Intranet/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="~/desing/Intranet/dist/js/sb-admin-2.js"></script>
+    <script src="~/desing/Intranet/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/desing/Intranet/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+</body>
+
+</html>

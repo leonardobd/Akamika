@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Akamika";
+    Layout = "~/Views/M_Basic.cshtml";
+}
+
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Akamika</h1>
+                    <h3>Cursos online</h3>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        @*<li>
+                            <a href="https://facebook.com" class="btn btn-primary btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                        </li>
+                            <!--Próximamente-->
+                            *@
+                        <li>
+                            <a href="#suscribete" class="btn btn-success btn-lg"><span class="network-name">Suscribete</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-section-a">
+    <div class="container">
+        <div class="col-lg-12">
+            <h2 class="page-header">Temas</h2>
+        </div>
+        @foreach (C_Entidades.Categoria c in C_ReglasNegocio.rn_Categoria.Instancia.ListaCategoria())
+        {
+            <div class="col-lg-4 col-sm-6 text-center">
+                <center><img class="img-circle img-responsive img-center" src="Desing/Imagenes/I_Categoria/@c.CategoriaIcono" alt=""></center>
+                <h3>@c.CategoriaNombre</h3>                
+                @if (Session["usuario"] != null)
+                {
+                    <a type="submit" href="@Url.Action("CursoDetalle", "Curso", new { CategoriaID = c.CategoriaID })" class="btn btn-info">Ver cursos</a>
+                }
+                else
+                {
+                    <a type="submit" href="@Url.Action("RegistroLogin", "Inicio")" class="btn btn-info">Ver cursos</a>
+                }
+            </div>
+            <br />
+        }
+        <a name="suscribete"></a>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="container">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2>Suscribete</h2><br>
+                    <form class="col-lg-6" method="post" action="../Inicio/Suscribir">
+                        <input type="email" class="form-control" name="txtCorreo" placeholder="Correo electrónico" required><br>
+                        <input type="submit" class="btn btn-success" value="Suscribirme"><br />
+                        @if (ViewBag.mensaje != null)
+                        {
+                            if (ViewBag.identificador == 2)
+                            {
+                                <br /><div class="alert alert-warning" role="alert">@ViewBag.mensaje</div><br />
+                            }
+                            else if (ViewBag.identificador == 3)
+                            {
+                                <br /><div class="alert alert-success" role="alert">@ViewBag.mensaje</div><br />
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

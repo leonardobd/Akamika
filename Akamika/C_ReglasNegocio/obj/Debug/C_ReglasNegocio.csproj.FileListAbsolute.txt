@@ -1,0 +1,29 @@
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.pdb
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.pdb
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.pdb
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.csprojResolveAssemblyReference.cache
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.dll
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_ReglasNegocio.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.dll
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.dll
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_AccesoDatos.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\bin\Debug\C_Entidades.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.csproj.AssemblyReference.cache
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.csproj.CoreCompileInputs.cache
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.csproj.CopyComplete
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.dll
+C:\Users\lbd_2\Desktop\Akamika\C_ReglasNegocio\obj\Debug\C_ReglasNegocio.pdb

@@ -1,0 +1,16 @@
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_Entidades\bin\Debug\C_Entidades.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_Entidades\bin\Debug\C_Entidades.pdb
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_Entidades\obj\Debug\C_Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_Entidades\obj\Debug\C_Entidades.dll
+C:\Users\Zero\Documents\Visual Studio 2013\Projects\Akamika\Akamika\C_Entidades\obj\Debug\C_Entidades.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_Entidades\bin\Debug\C_Entidades.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_Entidades\bin\Debug\C_Entidades.pdb
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_Entidades\obj\Debug\C_Entidades.csprojResolveAssemblyReference.cache
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_Entidades\obj\Debug\C_Entidades.dll
+D:\codcafein.wordpress.com\Akamika\Proyecto C#\Akamika\C_Entidades\obj\Debug\C_Entidades.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\bin\Debug\C_Entidades.dll
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\bin\Debug\C_Entidades.pdb
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\obj\Debug\C_Entidades.csproj.AssemblyReference.cache
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\obj\Debug\C_Entidades.csproj.CoreCompileInputs.cache
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\obj\Debug\C_Entidades.dll
+C:\Users\lbd_2\Desktop\Akamika\C_Entidades\obj\Debug\C_Entidades.pdb
